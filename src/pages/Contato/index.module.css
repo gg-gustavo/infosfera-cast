@@ -1,0 +1,243 @@
+.contatoPage {
+    background-color: #f5f5f5;
+    padding-top: 2rem;
+    min-height: 100vh;
+}
+
+.contentContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .contentContainer {
+        padding: 0 1rem;
+    }
+}
+
+.section {
+    padding: 4rem 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sectionTitle {
+    color: #2d2e82;
+    font-weight: 700 !important;
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem !important;
+    position: relative;
+    display: inline-block;
+}
+
+.titleUnderline {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #2d2e82 0%, #1abc9c 100%);
+    border-radius: 2px;
+}
+
+.sectionSubtitle {
+    color: #666;
+    margin-top: 2rem !important;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem !important;
+    line-height: 1.8;
+    max-width: 700px;
+}
+
+.heroBanner {
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin-top: -2rem;
+}
+
+@media (max-width: 900px) {
+    .heroBanner {
+        height: 300px;
+    }
+}
+
+/* Layout do Conteúdo */
+.contentWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+@media (max-width: 968px) {
+    .contentWrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Card de Informações */
+.infoCard {
+    border-radius: 20px !important;
+    background: linear-gradient(135deg, #2d2e82 0%, #1abc9c 100%) !important;
+    box-shadow: 0 8px 30px rgba(45, 46, 130, 0.2) !important;
+    color: white !important;
+    height: 100%;
+    position: sticky;
+    top: 2rem;
+}
+
+@media (max-width: 968px) {
+    .infoCard {
+        position: relative;
+        top: 0;
+    }
+}
+
+.infoCard > div {
+    padding: 3rem !important;
+    text-align: center;
+}
+
+.iconWrapper {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.infoTitle {
+    color: white !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
+}
+
+.infoText {
+    color: rgba(255, 255, 255, 0.95) !important;
+    line-height: 1.8;
+    margin-bottom: 2rem !important;
+}
+
+.emailBox {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.emailText {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+}
+
+.emailLink {
+    color: white !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.emailLink:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+}
+
+.responseTime {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 0.9rem !important;
+    margin-top: 2rem !important;
+    font-style: italic;
+}
+
+/* Card do Formulário */
+.formCard {
+    border-radius: 20px !important;
+    background: white !important;
+    box-shadow: 0 4px 20px rgba(45, 46, 130, 0.08) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.formCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2d2e82 0%, #1abc9c 100%);
+}
+
+.formCard > div {
+    padding: 3rem !important;
+}
+
+@media (max-width: 768px) {
+    .formCard > div {
+        padding: 2rem !important;
+    }
+}
+
+/* Formulário */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.textField {
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.textField .MuiOutlinedInput-root {
+    border-radius: 8px;
+}
+
+.textField .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #2d2e82;
+}
+
+.textField .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #2d2e82;
+}
+
+.textField .MuiInputLabel-root.Mui-focused {
+    color: #2d2e82;
+}
+
+/* Botão de Envio */
+.submitButton {
+    margin-top: 1rem !important;
+    padding: 1rem 2rem !important;
+    background: linear-gradient(135deg, #2d2e82 0%, #1abc9c 100%) !important;
+    color: white !important;
+    border-radius: 30px !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    text-transform: none !important;
+    box-shadow: 0 4px 15px rgba(45, 46, 130, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.submitButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(45, 46, 130, 0.4) !important;
+}
