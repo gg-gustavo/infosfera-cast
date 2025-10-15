@@ -1,40 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import MicIcon from '@mui/icons-material/Mic';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import PeopleIcon from '@mui/icons-material/People';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import PodcastsIcon from '@mui/icons-material/Podcasts';
-import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import MessageIcon from '@mui/icons-material/Message';
 import styles from './index.module.css';
+import banner_cast from '../../assets/banner_cast.jpeg'; // IMAGEM IMPORTADA AQUI
 
 const Home = () => {
-  const [hoveredStat, setHoveredStat] = useState(null);
-  const [hoveredFeature, setHoveredFeature] = useState(null);
-
-  const stats = [
-    { number: '150+', label: 'Episódios', icon: MicIcon },
-    { number: '50K+', label: 'Ouvintes', icon: PeopleIcon },
-    { number: '4.9★', label: 'Avaliação', icon: TrendingUpIcon },
-  ];
 
   const features = [
     {
+      icon: MicIcon,
+      title: 'Conteúdo Especializado e de Qualidade',
+      description: 'Debates aprofundados sobre governança digital, proteção de dados, IA, ética e outros temas estratégicos para a gestão da informação no setor público.',
+    },
+    {
+      icon: PeopleIcon,
+      title: 'Abordagem Interdisciplinar e Diversa',
+      description: 'Conectamos especialistas, gestores públicos, pesquisadores e a sociedade civil, promovendo a diversidade de vozes e a união entre teoria e prática.',
+    },
+    {
       icon: PodcastsIcon,
-      title: 'Conteúdo de Qualidade',
-      description: 'Episódios cuidadosamente produzidos com informações relevantes e insights valiosos sobre tecnologia, inovação e cultura digital.',
-    },
-    {
-      icon: CalendarTodayIcon,
-      title: 'Novos Episódios',
-      description: 'Episódios semanais com os temas mais atuais e convidados especiais. Nunca fique por fora das novidades do mundo tech.',
-    },
-    {
-      icon: VolumeUpIcon,
-      title: 'Áudio Premium',
-      description: 'Qualidade de áudio profissional para uma experiência imersiva. Ouça onde e quando quiser, do jeito que você preferir.',
+      title: 'Acesso Aberto e Democrático',
+      description: 'Nossa missão é democratizar o conhecimento sobre a gestão da informação na esfera pública, fortalecendo uma sociedade mais transparente e informada.',
     },
   ];
 
@@ -45,20 +35,19 @@ const Home = () => {
   };
 
   const navigateToContact = () => {
-    // Navegação para página de contato
-    console.log('Navegando para /contato');
-    // window.location.href = '/contato';
+    // Abre o cliente de e-mail com o endereço de contato
+    window.location.href = 'mailto:infosferacast@infosfera.inf.br';
   };
 
   return (
     <div className={styles.homePage}>
       {/* Hero Section */}
-      <section className={styles.hero}>
+      <section className={styles.hero} style={{ backgroundImage: `url(${banner_cast})` }}>
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>Infocast</h1>
+          <h1 className={styles.heroTitle}>InfosferaCast</h1>
           <p className={styles.heroSubtitle}>
-            Seu podcast de tecnologia, inovação e futuro digital
+            Boas Práticas em Gestão da Informação na Esfera Pública
           </p>
           <div className={styles.heroCTA}>
             <button className={styles.btnPrimary} onClick={navigateToPodcast}>
@@ -73,38 +62,16 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Features Section */}
       <section className={styles.section}>
         <div className={styles.contentContainer}>
-          <div className={styles.statsGrid}>
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={index}
-                  className={`${styles.statCard} ${hoveredStat === index ? styles.statCardHover : ''}`}
-                  onMouseEnter={() => setHoveredStat(index)}
-                  onMouseLeave={() => setHoveredStat(null)}
-                  onClick={navigateToPodcast}
-                >
-                  <div className={styles.statIconWrapper}>
-                    <Icon sx={{ fontSize: 40 }} />
-                  </div>
-                  <div className={styles.statNumber}>{stat.number}</div>
-                  <div className={styles.statLabel}>{stat.label}</div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Features Section */}
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>
-              Por que ouvir o Infocast?
+              Por que ouvir o InfosferaCast?
               <span className={styles.titleUnderline}></span>
             </h2>
             <p className={styles.sectionSubtitle}>
-              Descubra as razões que fazem do Infocast o seu podcast favorito sobre tecnologia
+              Seja referência em gestão da informação, tecnologia e governança pública
             </p>
           </div>
 
@@ -114,9 +81,7 @@ const Home = () => {
               return (
                 <div
                   key={index}
-                  className={`${styles.featureCard} ${hoveredFeature === index ? styles.featureCardHover : ''}`}
-                  onMouseEnter={() => setHoveredFeature(index)}
-                  onMouseLeave={() => setHoveredFeature(null)}
+                  className={styles.featureCard}
                   onClick={navigateToPodcast}
                 >
                   <div className={styles.featureAccent}></div>
@@ -136,13 +101,13 @@ const Home = () => {
       <section className={styles.section}>
         <div className={styles.contentContainer}>
           <div className={styles.ctaSection}>
-            <h2 className={styles.ctaTitle}>Explore Nossos Episódios</h2>
+            <h2 className={styles.ctaTitle}>Explore Nossos Futuros Episódios</h2>
             <p className={styles.ctaText}>
-              Descubra conteúdos exclusivos sobre tecnologia, inovação e muito mais
+              O lançamento oficial está previsto para 2025. Acompanhe as novidades em nosso site e redes sociais.
             </p>
             <div className={styles.ctaButtons}>
               <button className={styles.btnCtaPrimary} onClick={navigateToPodcast}>
-                Ver Todos os Episódios
+                Conheça os Temas
                 <ArrowForwardIcon />
               </button>
               <button className={styles.btnCtaSecondary} onClick={navigateToContact}>
@@ -159,14 +124,14 @@ const Home = () => {
         <div className={styles.contentContainer}>
           <div className={styles.finalCTA}>
             <h2 className={styles.sectionTitle}>
-              Não perca nenhum episódio
+              Não perca a estreia
               <span className={styles.titleUnderline}></span>
             </h2>
             <p className={styles.sectionSubtitle}>
-              Acesse nossa página de podcasts e fique por dentro de todos os episódios
+              Acesse nossa página de podcasts e fique por dentro de todos os preparativos para o lançamento.
             </p>
             <button className={styles.btnFinal} onClick={navigateToPodcast}>
-              Acessar Página de Podcasts
+              Acessar Página do Podcast
               <ArrowForwardIcon />
             </button>
           </div>

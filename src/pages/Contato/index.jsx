@@ -4,7 +4,6 @@ import EmailIcon from '@mui/icons-material/Email';
 import SendIcon from '@mui/icons-material/Send';
 
 import styles from './index.module.css';
-import bannerImage from '../../assets/banner3.png';
 
 const Contato = () => {
   const [formData, setFormData] = useState({
@@ -36,12 +35,6 @@ const Contato = () => {
 
   return (
     <Box className={styles.contatoPage}>
-      {/* Banner */}
-      <Box 
-        className={styles.heroBanner} 
-        style={{ backgroundImage: `url(${bannerImage})` }} 
-      />
-
       {/* Seção de Contato */}
       <Box className={styles.section}>
         <Box className={styles.contentContainer}>

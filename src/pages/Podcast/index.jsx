@@ -41,30 +41,28 @@ const Podcast = () => {
   };
 
   const handleYouTubeClick = () => {
-    console.log('Abrindo YouTube...');
-    // window.open('URL_DO_YOUTUBE', '_blank');
+    // Abre o canal do YouTube do InfosferaCast em uma nova aba
+    window.open('https://www.youtube.com/@InfosferaCast', '_blank');
   };
 
   const handleContactClick = () => {
-    console.log('Navegando para /contato');
-    // window.location.href = '/contato';
+    // Abre o cliente de e-mail padrão com o endereço do InfosferaCast
+    window.location.href = 'mailto:infosferacast@infosfera.inf.br';
   };
 
-  // OBS: Havia uma variável 'isPulsing' faltando no seu botão, removi por enquanto para evitar erros.
-  // Também corrigi o caminho do logo para usar a variável importada.
   return (
     <div className={styles.podcastPage}>
       {/* Hero Section with Logo */}
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
           <div className={styles.logoContainer}>
-            <img src={logoPrincipal} alt="Infocast Logo" className={styles.logo} />
+            <img src={logoPrincipal} alt="InfosferaCast Logo" className={styles.logo} />
           </div>
           <Typography variant="h2" className={styles.heroTitle}>
-            Infocast
+            InfosferaCast
           </Typography>
           <Typography variant="h5" className={styles.heroSubtitle}>
-            Tecnologia, Inovação e Futuro Digital
+            Boas Práticas em Gestão da Informação na Esfera Pública
           </Typography>
           <button 
             className={styles.youtubeButton}
@@ -78,22 +76,21 @@ const Podcast = () => {
 
       {/* Video Trailer Section */}
       <section className={styles.trailerSection}>
-        {/* ... (o resto do seu código permanece o mesmo) ... */}
         <Container maxWidth="lg">
           <div className={styles.sectionHeader}>
             <Typography variant="h3" className={styles.sectionTitle}>
-              Assista ao Trailer
+              Conheça o Projeto
               <span className={styles.titleUnderline}></span>
             </Typography>
             <Typography className={styles.sectionSubtitle}>
-              Descubra o que torna o Infocast único
+              Descubra o que torna o InfosferaCast único
             </Typography>
           </div>
           <div className={styles.videoContainer}>
             <div className={styles.videoPlaceholder}>
               <YouTubeIcon sx={{ fontSize: 80, color: '#f39c12' }} />
               <Typography variant="h6" sx={{ marginTop: 2, color: '#666' }}>
-                Vídeo do Trailer
+                Vídeo de Apresentação
               </Typography>
               <Typography sx={{ color: '#999', marginTop: 1 }}>
                 Cole aqui o embed do YouTube ou iframe do vídeo
@@ -108,25 +105,20 @@ const Podcast = () => {
       <Container maxWidth="lg">
           <div className={styles.sectionHeader}>
             <Typography variant="h3" className={styles.sectionTitle}>
-              O que é o Infocast?
+              O que é o InfosferaCast?
               <span className={styles.titleUnderline}></span>
             </Typography>
           </div>
           <div className={styles.aboutContent}>
             <div className={styles.aboutCard}>
               <Typography className={styles.aboutText}>
-                O <strong>Infocast</strong> é o seu podcast de referência sobre tecnologia, inovação e o futuro digital. 
-                Criado para entusiastas, profissionais e curiosos da área tech, nosso podcast traz discussões profundas, 
-                entrevistas exclusivas e análises sobre as tendências que estão moldando o mundo.
+                O <strong>InfosferaCast</strong> é o podcast oficial do projeto Infosfera, voltado à disseminação de conhecimento e ao fortalecimento das melhores práticas de gestão da informação na esfera pública. Com uma abordagem interdisciplinar e acessível, buscamos democratizar o conhecimento na área.
               </Typography>
               <Typography className={styles.aboutText}>
-                A cada episódio, exploramos temas como inteligência artificial, desenvolvimento de software, 
-                startups, cibersegurança, e muito mais. Nossa missão é democratizar o conhecimento tecnológico 
-                e inspirar pessoas a criarem o futuro.
+                A cada episódio, exploramos temas atuais e estratégicos como governança digital, proteção de dados, inteligência artificial e ética no setor público, transparência governamental e segurança informacional. Conectamos teoria e prática por meio do diálogo com especialistas, gestores públicos e pesquisadores.
               </Typography>
               <Typography className={styles.aboutText}>
-                Com uma produção profissional e conteúdo de alta qualidade, o Infocast é o companheiro perfeito 
-                para quem quer se manter atualizado e inspirado no universo da tecnologia.
+                Nossa missão é disseminar a reflexão crítica sobre a gestão da informação, conectando especialistas, gestores, pesquisadores e a sociedade civil por meio de debates aprofundados para o desenvolvimento de uma sociedade mais informada, transparente e democrática.
               </Typography>
             </div>
           </div>
@@ -138,11 +130,11 @@ const Podcast = () => {
         <Container maxWidth="lg">
           <div className={styles.sectionHeader}>
             <Typography variant="h3" className={styles.sectionTitle}>
-              Nossa Estrutura
+              Nossos Formatos
               <span className={styles.titleUnderline}></span>
             </Typography>
             <Typography className={styles.sectionSubtitle}>
-              Conheça o estúdio e equipamentos que tornam tudo possível
+              Conheça os diferentes tipos de conteúdo que produzimos
             </Typography>
           </div>
           <div className={styles.carouselContainer}>
@@ -152,7 +144,7 @@ const Podcast = () => {
             <div className={styles.carouselImageWrapper}>
               <img 
                 src={images[currentImage]} 
-                alt={`Estrutura ${currentImage + 1}`} 
+                alt={`Formato ${currentImage + 1}`} 
                 className={styles.carouselImage}
               />
               <div className={styles.carouselIndicators}>
@@ -177,7 +169,7 @@ const Podcast = () => {
         <Container maxWidth="md">
           <div className={styles.ctaContent}>
             <Typography variant="h3" className={styles.ctaTitle}>
-              Quer participar do Infocast?
+              Quer participar do InfosferaCast?
             </Typography>
             <Typography className={styles.ctaText}>
               Entre em contato conosco para parcerias, sugestões de pautas ou para ser nosso próximo convidado!
