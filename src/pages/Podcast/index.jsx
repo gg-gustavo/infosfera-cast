@@ -5,9 +5,10 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MessageIcon from '@mui/icons-material/Message';
 import styles from './index.module.css';
+import banner_cast from '../../assets/banner_cast.jpeg'; // IMAGEM IMPORTADA AQUI
 
 // --- PASSO 1: IMPORTE AS IMAGENS AQUI ---
-import logoPrincipal from '../../assets/logo.png'; // Supondo que seu logo também está em assets
+import logoPrincipal from '../../assets/logo_cast.png';
 import imagem1 from '../../assets/estrutura/1.png';
 import imagem2 from '../../assets/estrutura/2.png';
 import imagem3 from '../../assets/estrutura/3.png';
@@ -41,19 +42,18 @@ const Podcast = () => {
   };
 
   const handleYouTubeClick = () => {
-    // Abre o canal do YouTube do InfosferaCast em uma nova aba
     window.open('https://www.youtube.com/@InfosferaCast', '_blank');
   };
 
   const handleContactClick = () => {
-    // Abre o cliente de e-mail padrão com o endereço do InfosferaCast
     window.location.href = 'mailto:infosferacast@infosfera.inf.br';
   };
 
   return (
     <div className={styles.podcastPage}>
       {/* Hero Section with Logo */}
-      <section className={styles.heroSection}>
+      <section className={styles.heroSection} style={{ backgroundImage: `url(${banner_cast})` }}>
+        <div className={styles.heroOverlay}></div> {/* Div para o filtro azulado */}
         <div className={styles.heroContent}>
           <div className={styles.logoContainer}>
             <img src={logoPrincipal} alt="InfosferaCast Logo" className={styles.logo} />

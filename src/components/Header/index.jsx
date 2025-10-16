@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Box, Button, IconButton, Menu, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import styles from './index.module.css';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo.jpg';
 
 const Header = () => {
   const navItems = [

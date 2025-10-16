@@ -35,6 +35,7 @@ const Contato = () => {
 
   return (
     <Box className={styles.contatoPage}>
+      {/* Banner */}
       {/* Seção de Contato */}
       <Box className={styles.section}>
         <Box className={styles.contentContainer}>
@@ -43,7 +44,7 @@ const Contato = () => {
               Entre em Contato
             </Typography>
             <Box className={styles.titleUnderline} />
-            <Typography className={styles.sectionSubtitle}>
+            <Typography  className={styles.sectionSubtitle}>
               Tem alguma dúvida sobre o Prêmio Infosfera? Estamos aqui para ajudar!
             </Typography>
           </Box>

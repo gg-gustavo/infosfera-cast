@@ -1,6 +1,6 @@
 .appBar {
-    background-color: #2d2e82 !important;
-    color: white !important;
+    background-color: white !important;
+    color: #2d2e82 !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -14,9 +14,9 @@
 @media (min-width: 900px) {
     .logo {
         /* Aumentando a força da regra com !important */
-        height: 100px !important; /* Mudei para 60px, 20px era muito pequeno. Ajuste como quiser! */
+        height: 80px !important; /* Mudei para 60px, 20px era muito pequeno. Ajuste como quiser! */
         width: auto !important;
         
-        margin: 1rem 24rem;
+        margin: 1rem 10rem;
     }
 }

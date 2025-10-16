@@ -1,3 +1,21 @@
+/* Animações */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(243, 156, 18, 0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 8px 30px rgba(243, 156, 18, 0.6); }
+}
+
 /* Podcast Page */
 .podcastPage {
     background-color: #f5f5f5;
@@ -6,17 +24,35 @@
 
 /* Hero Section */
 .heroSection {
-    background: linear-gradient(135deg, #2d2e82 0%, #1abc9c 100%);
-    padding: 100px 20px 80px;
     position: relative;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 100px 20px 80px;
+    color: white;
+    text-align: center;
+
+    /* Estilos para a imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.heroOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 31, 82, 0.75); /* Filtro azulado */
+    z-index: 1;
 }
 
 .heroContent {
+    position: relative;
+    z-index: 2; /* Conteúdo acima do filtro */
     max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-    color: white;
 }
 
 .logoContainer {
@@ -25,9 +61,9 @@
 }
 
 .logo {
-    max-width: 200px;
+    max-width: 400px;
     height: auto;
-    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
     animation: float 3s ease-in-out infinite;
 }
 
@@ -35,7 +71,7 @@
     font-size: 3.5rem !important;
     font-weight: 800 !important;
     margin-bottom: 1rem !important;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 0.8s ease-out 0.2s backwards;
 }
 
@@ -44,6 +80,9 @@
     margin-bottom: 2.5rem !important;
     opacity: 0.95;
     animation: fadeInUp 0.8s ease-out 0.4s backwards;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* YouTube Button */
@@ -68,17 +107,6 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 30px rgba(243, 156, 18, 0.5);
     background: #e67e22;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 4px 20px rgba(243, 156, 18, 0.3);
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 8px 30px rgba(243, 156, 18, 0.6);
-    }
 }
 
 /* Section Headers */
@@ -127,7 +155,7 @@
 .videoPlaceholder {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: linear-gradient(135deg, #f8f9fc 0%, #e9ecef 100%);
+    background: #e9ecef;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -140,7 +168,7 @@
 /* About Section */
 .aboutSection {
     padding: 80px 20px;
-    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    background: #f8f9fa;
 }
 
 .aboutContent {
@@ -200,7 +228,6 @@
 
 .carouselButton:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(45, 46, 130, 0.4);
 }
 
 .carouselImageWrapper {
@@ -288,43 +315,15 @@
     background: white;
     color: #2d2e82;
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
-}
-
-/* Animations */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+    .heroSection {
+        min-height: 50vh;
+        padding: 80px 20px 60px;
+    }
+
     .heroTitle {
         font-size: 2.5rem !important;
     }
@@ -342,7 +341,7 @@
     }
 
     .logo {
-        max-width: 150px;
+        max-width: 250px;
     }
 
     .aboutCard {
@@ -359,8 +358,7 @@
     }
 
     .carouselButton {
-        width: 50px;
-        height: 50px;
+        display: none; /* Esconde os botões laterais no mobile */
     }
 
     .youtubeButton,
