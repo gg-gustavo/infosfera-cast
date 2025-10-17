@@ -1,3 +1,5 @@
+import { useState, useEffect, useRef } from 'react'
+
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import MicIcon from '@mui/icons-material/Mic';
 import PeopleIcon from '@mui/icons-material/People';
@@ -6,13 +8,42 @@ import PodcastsIcon from '@mui/icons-material/Podcasts';
 import MessageIcon from '@mui/icons-material/Message';
 import styles from './index.module.css';
 import banner_cast from '../../assets/banner_cast.jpeg';
-import { Typography, Box, Grid } from '@mui/material';
+import { Typography, Box, Grid, Card, } from '@mui/material';
 
 const realizacaoLogos = Object.values(import.meta.glob('../../assets/realizacao/*.jpg', { eager: true, query: '?url', import: 'default' }));
 const apoioLogos = Object.values(import.meta.glob('../../assets/apoio/*.jpg', { eager: true, query: '?url', import: 'default' }));
 
+// Ícones para a seção de Temáticas
+import InterpreterModeIcon from '@mui/icons-material/InterpreterMode';
+import TableBarIcon from '@mui/icons-material/TableBar';
+import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 const Home = () => {
+
+  const [visibleCards, setVisibleCards] = useState(new Set());
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const cardId = entry.target.dataset.id;
+          setVisibleCards((prev) => new Set(prev).add(cardId));
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    cardRefs.current.forEach((card) => { if (card) observer.observe(card); });
+    return () => observer.disconnect();
+  }, []);
+
+  const tematicas = [
+    { title: 'Entrevistas com especialistas', icon: <InterpreterModeIcon fontSize="large" /> },
+    { title: 'Mesas redondas temáticas', icon: <TableBarIcon fontSize="large" /> },
+    { title: 'Cortes com trechos de reflexão', icon: <EmojiObjectsIcon fontSize="large" /> },
+    { title: 'Edição especial do Congresso Infosfera 2025', icon: <AutoAwesomeIcon fontSize="large" /> },
+  ];
 
   const features = [
     {
@@ -51,7 +82,7 @@ const Home = () => {
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>InfosferaCast</h1>
           <p className={styles.heroSubtitle}>
-            Boas Práticas em Gestão da Informação na Esfera Pública
+            Seu podcast sobre Boas Práticas em Gestão da Informação na Esfera Pública
           </p>
           <div className={styles.heroCTA}>
             <button className={styles.btnPrimary} onClick={navigateToPodcast}>
@@ -100,7 +131,30 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+      
+      <Box className={`${styles.section} ${styles.sectionLight}`}>
+        <Box className={styles.contentContainer}>
+          <Box className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Nosso Formato</h2>
+          </Box>
+          <Grid container spacing={4} rowGap={10} columns={{ xs: 1, md: 12 }}>
+            {tematicas.map((item, index) => (
+              <Grid size={{ xs: 1, md: 3 }} key={item.title}>
+                <Card
+                  ref={(el) => (cardRefs.current[7 + index] = el)}
+                  data-id={`tematica-${item.title.replace(/\s+/g, '-')}`}
+                  className={`${styles.themeCard}`}
+                >
+                  <Box sx={{ display: "flex", justifyContent: "center", background:"linear-gradient(135deg,#2d2e82,#3d3e92)",padding:"20px",borderRadius:"15px !important", color:"white"}}>{item.icon}</Box>
+                  <Typography variant="h6" sx={{textAlign:"center",marginTop:"20px"}} className={styles.themeCardTitle}>
+                    {item.title}
+                  </Typography>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Box>
       {/* CTA Section - Explorar Episódios */}
       <section className={styles.section}>
         <div className={styles.contentContainer}>
@@ -123,7 +177,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
       <Box className={styles.section}>
         <Box className={styles.contentContainer}>
           <Box className={styles.sectionHeader}>

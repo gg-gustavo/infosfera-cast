@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
-import { Typography, Container } from '@mui/material';
+import { useState } from 'react';
+// Imports de UI e Grid
+import { Typography, Container, Box, Grid, Card, CardContent, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+// Ícones
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MessageIcon from '@mui/icons-material/Message';
-import styles from './index.module.css';
-import banner_cast from '../../assets/banner_cast.jpeg'; // IMAGEM IMPORTADA AQUI
+// Ícones para a nova seção
+import TrackChangesIcon from '@mui/icons-material/TrackChanges'; // Para Missão
+import VisibilityIcon from '@mui/icons-material/Visibility';   // Para Visão
+import StarIcon from '@mui/icons-material/Star';               // Para Valores
 
-// --- PASSO 1: IMPORTE AS IMAGENS AQUI ---
-import logoPrincipal from '../../assets/logo_cast.png';
+import styles from './index.module.css';
+import banner_cast from '../../assets/banner_cast.jpeg';
+
+/*import logoPrincipal from '../../assets/logo_cast.png';*/
 import imagem1 from '../../assets/estrutura/1.png';
 import imagem2 from '../../assets/estrutura/2.png';
 import imagem3 from '../../assets/estrutura/3.png';
@@ -17,11 +23,13 @@ import imagem5 from '../../assets/estrutura/5.png';
 import imagem6 from '../../assets/estrutura/6.png';
 import imagem7 from '../../assets/estrutura/7.png';
 import imagem8 from '../../assets/estrutura/8.png';
+import imagem9 from '../../assets/estrutura/9.png';
+
+import videoLoop from '../../assets/video/1.mp4';
 
 const Podcast = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
-  // --- PASSO 2: USE AS VARIÁVEIS IMPORTADAS NO ARRAY ---
   const images = [
     imagem1,
     imagem2,
@@ -31,6 +39,7 @@ const Podcast = () => {
     imagem6,
     imagem7,
     imagem8,
+    imagem9,
   ];
 
   const nextImage = () => {
@@ -49,22 +58,27 @@ const Podcast = () => {
     window.location.href = 'mailto:infosferacast@infosfera.inf.br';
   };
 
+  // Lista de valores para o card
+  const valores = [
+    "Compromisso com a informação de qualidade",
+    "Ética e responsabilidade no que diz respeito ao conteúdo",
+    "Abordagem interdisciplinar e de caráter inovador",
+    "Promoção da inclusão e diversidade de vozes",
+    "Acesso aberto e democrático ao conhecimento"
+  ];
+
   return (
     <div className={styles.podcastPage}>
-      {/* Hero Section with Logo */}
       <section className={styles.heroSection} style={{ backgroundImage: `url(${banner_cast})` }}>
-        <div className={styles.heroOverlay}></div> {/* Div para o filtro azulado */}
+        <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
-          <div className={styles.logoContainer}>
-            <img src={logoPrincipal} alt="InfosferaCast Logo" className={styles.logo} />
-          </div>
           <Typography variant="h2" className={styles.heroTitle}>
             InfosferaCast
           </Typography>
           <Typography variant="h5" className={styles.heroSubtitle}>
-            Boas Práticas em Gestão da Informação na Esfera Pública
+            Seu podcast sobre Boas Práticas em Gestão da Informação na Esfera Pública
           </Typography>
-          <button 
+          <button
             className={styles.youtubeButton}
             onClick={handleYouTubeClick}
           >
@@ -87,22 +101,22 @@ const Podcast = () => {
             </Typography>
           </div>
           <div className={styles.videoContainer}>
-            <div className={styles.videoPlaceholder}>
-              <YouTubeIcon sx={{ fontSize: 80, color: '#f39c12' }} />
-              <Typography variant="h6" sx={{ marginTop: 2, color: '#666' }}>
-                Vídeo de Apresentação
-              </Typography>
-              <Typography sx={{ color: '#999', marginTop: 1 }}>
-                Cole aqui o embed do YouTube ou iframe do vídeo
-              </Typography>
-            </div>
+            <video
+              className={styles.videoPlayer}
+              src={videoLoop}
+              autoPlay
+              loop
+              muted
+            >
+              Seu navegador não suporta a tag de vídeo.
+            </video>
           </div>
         </Container>
       </section>
 
       {/* About Section */}
       <section className={styles.aboutSection}>
-      <Container maxWidth="lg">
+        <Container maxWidth="lg">
           <div className={styles.sectionHeader}>
             <Typography variant="h3" className={styles.sectionTitle}>
               O que é o InfosferaCast?
@@ -124,17 +138,78 @@ const Podcast = () => {
           </div>
         </Container>
       </section>
+      
+      {/* ================================================================ */}
+      {/* ======================= SEÇÃO ATUALIZADA ======================= */}
+      {/* ================================================================ */}
+      <Box className={styles.section}>
+        <Container maxWidth={"md"} sx={{maxWidth:"80%", display:"flex", justifyContent:"center", alignItems:"center"}} >
+          <Box className={styles.contentContainer}>
+            <Grid container spacing={4} sx={{ maxWidth:"100%", display:"flex", justifyContent:"center",alignItems:"center"}}>
 
-      {/* Structure Carousel Section */}
+              <Grid sx={{margin:"5% auto"}}>
+                <Card className={`${styles.infoCard} ${styles.visible}`}>
+                  <Box className={styles.cardAccentBar} />
+                  <CardContent>
+                    <Box className={styles.cardHeader}>
+                      <Box className={`${styles.cardIconWrapper} ${styles.iconPrimary}`}><TrackChangesIcon fontSize="large" /></Box>
+                      <Typography variant="h3" className={styles.cardTitle}>Nossa Missão</Typography>
+                    </Box>
+                    <Typography className={styles.cardText}>
+                      Disseminar e democratizar o conhecimento e reflexão crítica sobre a gestão da informação na esfera pública, conectando especialistas, gestores, pesquisadores e sociedade civil, por meio de conversas e debates aprofundados, qualificados e inspiradores.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+
+              <Grid  sx={{margin:"5% auto"}}>
+                <Card className={`${styles.infoCard} ${styles.visible}`}>
+                  <Box className={`${styles.cardAccentBar} ${styles.accentSecondary}`} />
+                  <CardContent>
+                    <Box className={styles.cardHeader}>
+                      <Box className={`${styles.cardIconWrapper} ${styles.iconSecondary}`}><VisibilityIcon fontSize="large" /></Box>
+                      <Typography variant="h3" className={styles.cardTitle}>Nossa Visão</Typography>
+                    </Box>
+                    <Typography className={styles.cardText}>
+                      O InfosferaCast tem como visão a consolidação como um dos principais canais brasileiros de reflexão e debate sobre o ecossistema da gestão da informação no âmbito da esfera pública, tornando-se referência nacional em podcasts a respeito desta temática, que unifica debates sobre informação, tecnologia e governança pública.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+
+              <Grid  sx={{margin:"5% auto" , minWidth:"100%"}} >
+                <Card sx={{height:"75%" }} className={`${styles.infoCard} ${styles.visible}`}>
+                  <Box className={styles.cardAccentBar} />
+                  <CardContent>
+                    <Box className={styles.cardHeader}>
+                      <Box className={`${styles.cardIconWrapper} ${styles.iconPrimary}`}><StarIcon fontSize="large" /></Box>
+                      <Typography variant="h3" className={styles.cardTitle}>Nossos Valores</Typography>
+                    </Box>
+                    <List className={styles.valueList}>
+                      {valores.map((valor, index) => (
+                        <ListItem key={index}>
+                          <ListItemIcon className={styles.valueListIcon}>
+                            <StarIcon sx={{ fontSize: 16 }} />
+                          </ListItemIcon>
+                          <ListItemText primary={valor} />
+                        </ListItem>
+                      ))}
+                    </List>
+                  </CardContent>
+                </Card>
+              </Grid>
+              
+            </Grid>
+          </Box>
+        </Container>
+      </Box>
+
       <section className={styles.structureSection}>
         <Container maxWidth="lg">
           <div className={styles.sectionHeader}>
             <Typography variant="h3" className={styles.sectionTitle}>
-              Nossos Formatos
+              Galeria de Fotos
               <span className={styles.titleUnderline}></span>
-            </Typography>
-            <Typography className={styles.sectionSubtitle}>
-              Conheça os diferentes tipos de conteúdo que produzimos
             </Typography>
           </div>
           <div className={styles.carouselContainer}>
@@ -142,9 +217,9 @@ const Podcast = () => {
               <ArrowBackIcon />
             </button>
             <div className={styles.carouselImageWrapper}>
-              <img 
-                src={images[currentImage]} 
-                alt={`Formato ${currentImage + 1}`} 
+              <img
+                src={images[currentImage]}
+                alt={`Formato ${currentImage + 1}`}
                 className={styles.carouselImage}
               />
               <div className={styles.carouselIndicators}>

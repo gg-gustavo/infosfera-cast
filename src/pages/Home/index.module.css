@@ -60,7 +60,7 @@
 }
 
 .heroSubtitle {
-  font-size: 1.5rem;
+  font-size: 3rem;
   margin-bottom: 2.5rem;
   opacity: 0.95;
   font-weight: 400;
@@ -130,7 +130,7 @@
 .contentContainer {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 0;
 }
 
 .section {
@@ -346,20 +346,12 @@
     background-color: #f0f4f8;
 }
 
-.logoGridContainer {
-    display: flex; /* Adicionado para melhor alinhamento */
-    flex-wrap: wrap; /* Adicionado para quebrar linha */
-    justify-content: center;
-    align-items: center;
-    gap: 1rem; /* Espaçamento entre logos */
-}
-
 .logoWrapper {
     background: white;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(45, 46, 130, 0.08);
     height: 100%;
-
+    margin:5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -376,4 +368,58 @@
     height: auto;
     object-fit: contain;
     border-radius: 20px;
+    filter: grayscale(0%);
+    opacity: 1;
 }
+.themeCard {
+    /* Força uma altura mínima padrão para todos os cards */
+    height: 100%;
+    padding: 2.5rem 1rem; /* Ajusta o espaçamento interno */
+ 
+    /* Garante que o conteúdo (ícone e texto) fique alinhado ao centro */
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: center; /* Alinha o conteúdo no topo */
+    align-items: center;
+    box-shadow: 0 0 0 0;
+}
+.themeCard:hover{
+   box-shadow: 0 16px 48px #2d2e8233;
+}
+
+/* Classe específica para o título dos cards de temáticas */
+.themeCardTitle {
+    /* Define a cor do texto como escura, não azul */
+    color: #333 !important;
+    
+    /* Ajusta o peso e tamanho da fonte para corresponder à imagem */
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4;
+    margin-top: 1rem; /* Espaçamento entre ícone e texto */
+}
+
+.themesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+.themeChip {
+    transition: all 0.3s ease !important;
+    border-radius: 20px !important;
+    font-weight: 500 !important;
+    padding: 0.5rem 1rem !important;
+    border-color: #2d2e82 !important;
+    color: #2d2e82 !important;
+    background-color: transparent !important;
+    cursor: pointer;
+}
+.themeChip:hover {
+    transform: translateY(-3px);
+    background-color: #2d2e82 !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(45, 46, 130, 0.25);
+}
+

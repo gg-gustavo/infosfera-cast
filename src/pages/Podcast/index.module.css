@@ -68,7 +68,7 @@
 }
 
 .heroTitle {
-    font-size: 3.5rem !important;
+    font-size: 5rem !important;
     font-weight: 800 !important;
     margin-bottom: 1rem !important;
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -76,7 +76,7 @@
 }
 
 .heroSubtitle {
-    font-size: 1.5rem !important;
+    font-size: 2rem !important;
     margin-bottom: 2.5rem !important;
     opacity: 0.95;
     animation: fadeInUp 0.8s ease-out 0.4s backwards;
@@ -366,5 +366,168 @@
         width: 100%;
         max-width: 300px;
         justify-content: center;
+    }
+}
+
+.videoContainer {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.videoPlayer {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(45, 46, 130, 0.15);
+    display: block;
+    object-fit: contain;
+}
+
+.videoPlaceholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #e9ecef;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(45, 46, 130, 0.1);
+    border: 3px dashed #ddd;
+}
+
+/* =========================================
+   Layout Geral da Seção
+   ========================================= */
+
+/* Container principal da seção com espaçamento e fundo */
+.section {
+    /* padding: 4rem 0; */
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+/* Container que centraliza o conteúdo na página */
+.contentContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+/* =========================================
+   Cabeçalho da Seção
+   ========================================= */
+
+/* Estilo para o cabeçalho que agrupa título e subtítulo */
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+/* Estilo do título principal da seção */
+.sectionTitle {
+    color: #2d2e82;
+    font-weight: 700 !important;
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem !important;
+    position: relative; /* Necessário para o posicionamento da linha abaixo */
+    display: inline-block;
+}
+
+/* Linha decorativa abaixo do título (estilo adicionado) */
+.titleUnderline {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #2d2e82 0%, #1abc9c 100%);
+    border-radius: 2px;
+}
+
+/* =========================================
+   Estilos dos Cards de Informação
+   ========================================= */
+
+/* Estilo base para os cards */
+.infoCard {
+    height: 100%;
+    border-radius: 16px !important;
+    padding: 2rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fc 100%);
+    box-shadow: 0 4px 20px rgba(45, 46, 130, 0.08) !important;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    /* Animação de entrada */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Efeito ao passar o mouse sobre o card */
+.infoCard:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(45, 46, 130, 0.15) !important;
+}
+
+/* Classe para tornar o card visível (usada com JavaScript) */
+.infoCard.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cardAccentBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2d2e82 0%, #1abc9c 100%);
+}
+
+.accentSecondary {
+    background: linear-gradient(90deg, #1abc9c 0%, #16a085 100%);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.cardIconWrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: white;
+}
+
+.iconPrimary {
+    background: linear-gradient(135deg, #2d2e82 0%, #3d3e92 100%);
+}
+
+
+.iconSecondary {
+    background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+}
+
+
+.cardTitle {
+    color: #2d2e82;
+    font-weight: 700 !important;
+    font-size: 1.75rem !important;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .contentContainer {
+        padding: 0 1rem;
     }
 }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Box, Button, IconButton, Menu, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import styles from './index.module.css';
-import logo from '../../assets/logo.jpg';
+import logo from '../../assets/logo.png';
 
 const Header = () => {
   const navItems = [
@@ -25,7 +25,9 @@ const Header = () => {
         <Toolbar sx={{ padding: { xs: '0 16px', md: '0 24px' } }}>
           {/* Logo do site */}
           <Box sx={{ flexGrow: 1 }}>
-            <img src={logo} alt="Logo Infosfera" className={styles.logo} />
+            <Link to="/">
+              <img src={logo} alt="Logo Infosfera" className={styles.logo} />
+            </Link>
           </Box>
           
           {/* Links de navegação para DESKTOP */}
