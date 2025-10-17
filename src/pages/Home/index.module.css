@@ -339,3 +339,41 @@
         max-width: 300px;
     }
 }
+
+/* ===== ESTILOS ADICIONADOS PARA AS SEÇÕES DE LOGOS ===== */
+
+.sectionLight {
+    background-color: #f0f4f8;
+}
+
+.logoGridContainer {
+    display: flex; /* Adicionado para melhor alinhamento */
+    flex-wrap: wrap; /* Adicionado para quebrar linha */
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Espaçamento entre logos */
+}
+
+.logoWrapper {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(45, 46, 130, 0.08);
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.logoWrapper:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(45, 46, 130, 0.15);
+}
+
+.logoImage {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px;
+}

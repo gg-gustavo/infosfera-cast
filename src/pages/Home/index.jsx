@@ -1,4 +1,3 @@
-import React from 'react';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import MicIcon from '@mui/icons-material/Mic';
 import PeopleIcon from '@mui/icons-material/People';
@@ -6,7 +5,12 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import PodcastsIcon from '@mui/icons-material/Podcasts';
 import MessageIcon from '@mui/icons-material/Message';
 import styles from './index.module.css';
-import banner_cast from '../../assets/banner_cast.jpeg'; // IMAGEM IMPORTADA AQUI
+import banner_cast from '../../assets/banner_cast.jpeg';
+import { Typography, Box, Grid } from '@mui/material';
+
+const realizacaoLogos = Object.values(import.meta.glob('../../assets/realizacao/*.jpg', { eager: true, query: '?url', import: 'default' }));
+const apoioLogos = Object.values(import.meta.glob('../../assets/apoio/*.jpg', { eager: true, query: '?url', import: 'default' }));
+
 
 const Home = () => {
 
@@ -65,7 +69,7 @@ const Home = () => {
       {/* Features Section */}
       <section className={styles.section}>
         <div className={styles.contentContainer}>
-          <div className={styles.sectionHeader}>
+          {/*<div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>
               Por que ouvir o InfosferaCast?
               <span className={styles.titleUnderline}></span>
@@ -73,7 +77,7 @@ const Home = () => {
             <p className={styles.sectionSubtitle}>
               Seja referência em gestão da informação, tecnologia e governança pública
             </p>
-          </div>
+          </div>*/}
 
           <div className={styles.featuresGrid}>
             {features.map((feature, index) => {
@@ -101,7 +105,7 @@ const Home = () => {
       <section className={styles.section}>
         <div className={styles.contentContainer}>
           <div className={styles.ctaSection}>
-            <h2 className={styles.ctaTitle}>Explore Nossos Futuros Episódios</h2>
+            <h2 className={styles.ctaTitle}>Explore Nossos Episódios</h2>
             <p className={styles.ctaText}>
               O lançamento oficial está previsto para 2025. Acompanhe as novidades em nosso site e redes sociais.
             </p>
@@ -120,23 +124,39 @@ const Home = () => {
       </section>
 
       {/* Final CTA */}
-      <section className={`${styles.section} ${styles.sectionFinal}`}>
-        <div className={styles.contentContainer}>
-          <div className={styles.finalCTA}>
-            <h2 className={styles.sectionTitle}>
-              Não perca a estreia
-              <span className={styles.titleUnderline}></span>
-            </h2>
-            <p className={styles.sectionSubtitle}>
-              Acesse nossa página de podcasts e fique por dentro de todos os preparativos para o lançamento.
-            </p>
-            <button className={styles.btnFinal} onClick={navigateToPodcast}>
-              Acessar Página do Podcast
-              <ArrowForwardIcon />
-            </button>
-          </div>
-        </div>
-      </section>
+      <Box className={styles.section}>
+        <Box className={styles.contentContainer}>
+          <Box className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Realização</h2>
+          </Box>
+          <Grid container spacing={4} columns={{ xs: 1, md: 4 }} className={styles.logoGridContainer}>
+            {realizacaoLogos.map((logo, index) => (
+              <Grid size={{ xs: 1, md: 1 }} key={index}>
+                <Box className={styles.logoWrapper}>
+                  <img src={logo} alt={`Logo Realização ${index + 1}`} className={styles.logoImage} />
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Box>
+
+      <Box className={`${styles.section} ${styles.sectionLight}`}>
+        <Box className={styles.contentContainer}>
+          <Box className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Apoio</h2>
+          </Box>
+          <Grid container spacing={2} columns={{ xs: 12, sm: 12, md: 12 }} className={styles.logoGridContainer}>
+            {apoioLogos.map((logo, index) => (
+              <Grid spacing={1} size={{ xs: 12, sm: 6, md: 3 }} key={index}>
+                <Box className={styles.logoWrapper}>
+                  <img src={logo} alt={`Logo Apoio ${index + 1}`} className={styles.logoImage} />
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Box>
     </div>
   );
 };
