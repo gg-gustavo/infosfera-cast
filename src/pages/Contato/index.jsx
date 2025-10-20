@@ -23,12 +23,12 @@ const Contato = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Construir o mailto com os dados do formulário
     const mailtoLink = `mailto:contato@infosfera.inf.br?subject=${encodeURIComponent(formData.assunto)}&body=${encodeURIComponent(
       `Nome: ${formData.nome}\nE-mail: ${formData.email}\n\nMensagem:\n${formData.mensagem}`
     )}`;
-    
+
     // Abrir o cliente de e-mail
     window.location.href = mailtoLink;
   };
@@ -44,7 +44,7 @@ const Contato = () => {
               Entre em Contato
             </Typography>
             <Box className={styles.titleUnderline} />
-            <Typography  className={styles.sectionSubtitle}>
+            <Typography className={styles.sectionSubtitle}>
               Tem alguma dúvida sobre o Prêmio Infosfera? Estamos aqui para ajudar!
             </Typography>
           </Box>
@@ -52,7 +52,7 @@ const Contato = () => {
           <Box className={styles.contentWrapper}>
             {/* Card de Informações */}
             <Card className={styles.infoCard}>
-              <CardContent>
+              <CardContent sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", textAlign: "center" }}>
                 <Box className={styles.iconWrapper}>
                   <EmailIcon sx={{ fontSize: 60 }} />
                 </Box>
